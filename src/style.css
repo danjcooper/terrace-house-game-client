@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  padding: 30px;
+
+  text-align: center;
+}
+
+label {
+  display: block;
+
+  margin: 20px;
+  padding: 15px;
+
+  background-color: white;
+  color: green;
+
+  border: 1px solid green;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  border-radius: 50px;
+}
+
+label input[type='checkbox'] {
+  display: none;
+}
+
+.active {
+  background-color: green;
+  color: white;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+  main {
+    width: 500px;
+  }
+}
