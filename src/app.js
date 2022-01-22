@@ -1,16 +1,29 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { SeasonSelector } from './components';
-import { GameOptionsPage } from './pages';
+import {
+  GameOptionsPage,
+  Home,
+  About,
+  Game,
+  NotFound,
+  LeaderBoard,
+} from './pages';
 
 import './style.css';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path='/' element={<GameOptionsPage />} />
-    </Routes>
+    <main>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/season-select' element={<GameOptionsPage />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/play' element={<Game />} />
+        <Route path='/leaderboard' element={<LeaderBoard />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </main>
   );
 };
 
