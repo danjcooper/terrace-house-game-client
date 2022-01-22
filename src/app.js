@@ -9,12 +9,14 @@ import {
   NotFound,
   LeaderBoard,
 } from './pages';
+import { Nav } from './components';
 
 import './style.css';
 
 const App = () => {
   return (
     <main>
+      <Nav />
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route path='/season-select' element={<GameOptionsPage />} />
