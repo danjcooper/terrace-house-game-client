@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { SeasonSelector } from '../../components';
+import { useNavigate } from 'react-router-dom';
 
 const GameOptionsPage = () => {
+  const navigate = useNavigate();
   const [selectedSeasons, setSelectedSeason] = useState(null);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
     let inputs = e.target.querySelectorAll('input');
     inputs = Array.from(inputs);
 
@@ -16,7 +17,6 @@ const GameOptionsPage = () => {
         temp.push(inputs[i].value);
       }
     }
-    console.log(temp);
     setSelectedSeason(temp);
   };
   return (
@@ -26,6 +26,10 @@ const GameOptionsPage = () => {
         <SeasonSelector />
         <button>Play</button>
       </form>
+
+      {selectedSeasons
+        ? navigate('/play', { state: { seasons: selectedSeasons } })
+        : null}
     </>
   );
 };

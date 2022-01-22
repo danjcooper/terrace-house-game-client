@@ -18,9 +18,9 @@ const App = () => {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route path='/season-select' element={<GameOptionsPage />} />
-        <Route path='/about' element={<About />} />
         <Route path='/play' element={<Game />} />
         <Route path='/leaderboard' element={<LeaderBoard />} />
+        <Route path='/about' element={<About />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </main>
