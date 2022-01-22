@@ -17,7 +17,6 @@ const convertSeasonCodes = (seasonName) => {
       seasonCode += seasonName[i].toUpperCase();
     }
   }
-  console.log(seasonCode);
   return seasonCode;
 };
 
