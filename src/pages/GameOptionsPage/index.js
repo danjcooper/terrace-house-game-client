@@ -24,7 +24,6 @@ const GameOptionsPage = () => {
       <h1>Game Options Page</h1>
       <form onSubmit={handleFormSubmit}>
         <SeasonSelector />
-        <button>Play</button>
       </form>
 
       {selectedSeasons

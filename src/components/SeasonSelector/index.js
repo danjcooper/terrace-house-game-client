@@ -53,6 +53,7 @@ const SeasonSelector = (props) => {
     <>
       <h2>Season selector</h2>
       {seasonsData ? generateSeasonButtons(seasonsData) : <h1>Loading Data</h1>}
+      <button>Play</button>
     </>
   );
 };

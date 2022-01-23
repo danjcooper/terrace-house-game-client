@@ -2,6 +2,7 @@ const gameStates = {
   GUESSING: 'GUESSING',
   RESULTS: 'RESULTS',
   LOADING: 'LOADING',
+  SPECIALEVENT: 'SPECIALEVENT',
   END: 'END',
 };
 
@@ -14,10 +15,23 @@ const convertSeasonCodes = (seasonName) => {
         seasonName[i - 1] === ' ') &&
       seasonName[i] !== ' '
     ) {
-      seasonCode += seasonName[i].toUpperCase();
+      seasonName[i] === '/'
+        ? null
+        : (seasonCode += seasonName[i].toUpperCase());
     }
   }
   return seasonCode;
 };
 
-module.exports = { gameStates, convertSeasonCodes };
+const generateApiString = (seasons) => {
+  let apiString = '';
+  for (let i = 0; i < seasons.length; i++) {
+    if (i !== 0) {
+      apiString += '+';
+    }
+    apiString += seasons[i];
+  }
+  return apiString;
+};
+
+module.exports = { gameStates, convertSeasonCodes, generateApiString };
