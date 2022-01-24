@@ -39,12 +39,28 @@ const getRadomNumberWithMax = (max) => {
 };
 
 const questions = [
-  { id: 0, text: 'Who was in the house longer?' },
-  { id: 1, text: 'Who went on more dates?' },
-  { id: 2, text: 'Who is older now?' },
-  { id: 3, text: 'Who was older when they first entered the house?' },
-  { id: 4, text: 'Who was has more instagram followers?' },
-  { id: 5, text: 'Who lived with more housemates?' },
+  {
+    id: 0,
+    text: 'Who was in the house longer?',
+    housemateObjRef: 'weeksinhouse',
+  },
+  { id: 1, text: 'Who went on more dates?', housemateObjRef: 'dates' },
+  { id: 2, text: 'Who is older now?', housemateObjRef: 'agenow' },
+  {
+    id: 3,
+    text: 'Who was older when they first entered the house?',
+    housemateObjRef: 'agewhenentered',
+  },
+  {
+    id: 4,
+    text: 'Who was has more instagram followers?',
+    housemateObjRef: 'instagramfollowers',
+  },
+  {
+    id: 5,
+    text: 'Who lived with more housemates?',
+    housemateObjRef: 'livedwith',
+  },
 ];
 
 const calculateWinner = (housemateOne, housemateTwo, questionId) => {
@@ -94,6 +110,16 @@ const calculateWinner = (housemateOne, housemateTwo, questionId) => {
   return winnerName;
 };
 
+const isDraw = (question, housemateOne, housemateTwo) => {
+  const draw =
+    housemateOne[question.housemateObjRef] ===
+    housemateTwo[question.housemateObjRef]
+      ? true
+      : false;
+
+  return draw;
+};
+
 module.exports = {
   gameStates,
   convertSeasonCodes,
@@ -101,4 +127,5 @@ module.exports = {
   getRadomNumberWithMax,
   questions,
   calculateWinner,
+  isDraw,
 };

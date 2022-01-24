@@ -9,6 +9,7 @@ import {
   getRadomNumberWithMax,
   questions,
   calculateWinner,
+  isDraw,
 } from '../../helpers';
 import {
   Loading,
@@ -83,48 +84,19 @@ const Game = () => {
     let housemateTwo =
       housemateData[getRadomNumberWithMax(housemateData.length - 1)];
 
-    while (housemateTwo.housematename === housemateOne.housematename) {
-      housemateTwo =
-        housemateData[getRadomNumberWithMax(housemateData.length - 1)];
-    }
+    // TODO refactor this
+    let draw = true;
+    let tryCount = 0;
 
-    let draw;
-
-    switch (question.id) {
-      case 0:
-        draw =
-          housemateOne.weeksinhouse === housemateTwo.weeksinhouse
-            ? true
-            : false;
-        break;
-      case 1:
-        draw = housemateOne.dates === housemateTwo.dates ? true : false;
-        break;
-      case 2:
-        draw = housemateOne.agenow === housemateTwo.agenow ? true : false;
-        break;
-      case 3:
-        draw =
-          housemateOne.agewhenentered === housemateTwo.agewhenentered
-            ? true
-            : false;
-        break;
-      case 4:
-        draw =
-          housemateOne.instagramfollowers === housemateTwo.instagramfollowers
-            ? true
-            : false;
-        break;
-      case 5:
-        draw = housemateOne.livedwith === housemateTwo.livedwith ? true : false;
-        break;
-
-      default:
-        break;
-    }
-    console.log(draw);
-    if (draw) {
-      // TODO Handle a draw.
+    while (draw === true && tryCount < questions.length) {
+      if (housemateTwo.housematename === housemateOne.housematename) {
+        housemateTwo =
+          housemateData[getRadomNumberWithMax(housemateData.length - 1)];
+      }
+      question = questions[getRadomNumberWithMax(questions.length - 1)];
+      draw = isDraw(question, housemateOne, housemateTwo);
+      console.log(draw);
+      tryCount++;
     }
 
     const winner = calculateWinner(housemateOne, housemateTwo, question.id);
