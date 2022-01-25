@@ -88,8 +88,11 @@ const Game = () => {
     let draw = true;
     let tryCount = 0;
 
-    while (draw === true && tryCount < questions.length) {
-      if (housemateTwo.housematename === housemateOne.housematename) {
+    while (draw === true) {
+      if (
+        housemateTwo.housematename === housemateOne.housematename ||
+        tryCount === questions.length - 1
+      ) {
         housemateTwo =
           housemateData[getRadomNumberWithMax(housemateData.length - 1)];
       }
