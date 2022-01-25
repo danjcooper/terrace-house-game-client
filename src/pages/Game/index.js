@@ -28,7 +28,7 @@ const Game = () => {
   const [gameStatus, setGameStatus] = useState();
 
   const [score, setScore] = useState(0);
-  const [lives, setLives] = useState(3);
+  const [lives, setLives] = useState(1);
   const [winner, setWinner] = useState(null);
 
   const baseUrl = 'https://terrace-house-server.herokuapp.com/';

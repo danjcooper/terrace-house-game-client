@@ -8,6 +8,12 @@ const Results = ({
   lives,
 }) => {
   useEffect(() => {
+    if (winner) {
+      updateScore(1000, winner);
+    } else {
+      updateLives(winner);
+    }
+
     setTimeout(() => {
       if (lives > 0) {
         updateGameStatus('GUESSING');
@@ -15,12 +21,6 @@ const Results = ({
         updateGameStatus('END');
       }
     }, 2000);
-
-    if (winner) {
-      updateScore(1000, winner);
-    } else {
-      updateLives(winner);
-    }
   }, []);
 
   return <>{winner ? <h1>Correct</h1> : <h1>Incorrect</h1>}</>;
