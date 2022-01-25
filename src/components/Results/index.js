@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Results = (props) => {
-  return <>{props.winner ? <h1>Correct</h1> : <h1>Incorrect</h1>}</>;
+const Results = ({ winner, updateGameStatus }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      updateGameStatus('GUESSING');
+    }, 5000);
+  }, []);
+
+  return <>{winner ? <h1>Correct</h1> : <h1>Incorrect</h1>}</>;
 };
 
 export default Results;

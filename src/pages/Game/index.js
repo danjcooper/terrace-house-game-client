@@ -29,6 +29,7 @@ const Game = () => {
 
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
+  const [winner, setWinner] = useState(null);
 
   const baseUrl = 'https://terrace-house-server.herokuapp.com/';
 
@@ -84,7 +85,6 @@ const Game = () => {
     let housemateTwo =
       housemateData[getRadomNumberWithMax(housemateData.length - 1)];
 
-    // TODO refactor this
     let draw = true;
     let tryCount = 0;
 
@@ -117,9 +117,15 @@ const Game = () => {
   const renderGameComponent = () => {
     switch (gameStatus) {
       case gameStates.GUESSING:
-        return <Guessing roundData={createRoundData()} />;
+        return (
+          <Guessing
+            roundData={createRoundData()}
+            updateGameStatus={updateGameStatus}
+            setWinner={setWinner}
+          />
+        );
       case gameStates.RESULTS:
-        return <Results winner={false} />;
+        return <Results winner={winner} updateGameStatus={updateGameStatus} />;
       case gameStates.LOADING:
         return <Loading />;
       case gameStates.SPECIALEVENT:
