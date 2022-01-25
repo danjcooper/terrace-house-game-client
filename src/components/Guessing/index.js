@@ -9,20 +9,24 @@ const Guessing = ({ roundData, updateGameStatus, setWinner }) => {
 
   return (
     <>
-      <h2>{roundData.question.text}</h2>
-      <h3>{roundData.housemateOne.housematename}</h3>
+      <hr />
+      <button onClick={handleClick}>
+        {roundData.housemateOne.housematename}
+      </button>
       <p>
         {roundData.housemateOne.nickname
           ? roundData.housemateOne.nickname
           : null}
       </p>
-      <button onClick={handleClick}>
-        {roundData.housemateOne.housematename}
-      </button>
-      <h3>{roundData.housemateTwo.housematename}</h3>
+      <p className='season-name'>{roundData.housemateOne.seasonname}</p>
+
+      <hr />
+      <h2>{roundData.question.text}</h2>
+      <hr />
       <button onClick={handleClick}>
         {roundData.housemateTwo.housematename}
       </button>
+      <p className='season-name'>{roundData.housemateTwo.seasonname}</p>
     </>
   );
 };
