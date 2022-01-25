@@ -125,7 +125,15 @@ const Game = () => {
           />
         );
       case gameStates.RESULTS:
-        return <Results winner={winner} updateGameStatus={updateGameStatus} />;
+        return (
+          <Results
+            winner={winner}
+            updateLives={updateLives}
+            updateScore={updateScore}
+            updateGameStatus={updateGameStatus}
+            lives={lives}
+          />
+        );
       case gameStates.LOADING:
         return <Loading />;
       case gameStates.SPECIALEVENT:
