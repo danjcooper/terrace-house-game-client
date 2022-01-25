@@ -69,7 +69,7 @@ label input[type='checkbox'] {
   color: white;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 375px) {
   body {
     background-color: lightblue;
   }
