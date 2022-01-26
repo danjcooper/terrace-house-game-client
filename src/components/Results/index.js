@@ -9,7 +9,7 @@ const Results = ({
 }) => {
   useEffect(() => {
     if (winner) {
-      updateScore(1000, winner);
+      updateScore(1, winner);
     } else {
       updateLives(winner);
     }

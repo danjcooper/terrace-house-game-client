@@ -1,10 +1,9 @@
 import React from 'react';
 
-const GameEnd = (props) => {
+const GameEnd = ({ score }) => {
   return (
     <>
-      <h1>You scored {props.score}</h1>
-      <h2>Your Highest Streak was {props.streak}</h2>
+      <h1>You scored {score}</h1>
     </>
   );
 };
