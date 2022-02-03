@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import styles from './style.module.css';
 
 import {
   convertSeasonCodes,
@@ -164,8 +165,6 @@ const Game = () => {
   return (
     <>
       <Score score={score} />
-      <p>Lives: {lives}</p>
-
       {seasonCodes ? (
         renderGameComponent()
       ) : (

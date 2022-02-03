@@ -46,7 +46,7 @@ const config = {
         use: ['style-loader', 'css-loader'],
       }, // transpile css files
       {
-        test: /\.(png|svg|jpg|gif|pdf)$/,
+        test: /\.(png|svg|jpg|gif|pdf|jpeg)$/,
         use: ['file-loader'],
       }, // transpile image files
     ],

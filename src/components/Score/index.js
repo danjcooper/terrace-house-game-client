@@ -1,7 +1,12 @@
 import React from 'react';
 
 const Score = ({ score }) => {
-  return <p>Score: {score}</p>;
+  const style = { margin: '5px' };
+  return (
+    <section>
+      <p style={style}>Score: {score}</p>
+    </section>
+  );
 };
 
 export default Score;

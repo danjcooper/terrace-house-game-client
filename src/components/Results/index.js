@@ -14,6 +14,8 @@ const Results = ({
       updateLives(winner);
     }
 
+    handleModalAnimation();
+
     setTimeout(() => {
       if (lives > 0) {
         updateGameStatus('GUESSING');
@@ -23,7 +25,18 @@ const Results = ({
     }, 2000);
   }, []);
 
-  return <>{winner ? <h1>Correct</h1> : <h1>Incorrect</h1>}</>;
+  const handleModalAnimation = () => {
+    const modal = document.getElementById('modal');
+    modal.classList.toggle('active');
+  };
+
+  return (
+    <>
+      <div id='modal' onClick={handleModalAnimation}>
+        {winner ? <h1>Correct</h1> : <h1>Incorrect</h1>}
+      </div>
+    </>
+  );
 };
 
 export default Results;

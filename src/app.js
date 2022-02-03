@@ -16,7 +16,7 @@ import './style.css';
 const App = () => {
   return (
     <main>
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route path='/season-select' element={<GameOptionsPage />} />
