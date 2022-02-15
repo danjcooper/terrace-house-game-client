@@ -1,6 +1,8 @@
 import React from 'react';
 import style from './style.module.css';
 
+// TODO - Refactor how results page is handled
+
 const Guessing = ({ roundData, updateGameStatus, setWinner }) => {
   const imgSrc = '../../assets/img';
 
