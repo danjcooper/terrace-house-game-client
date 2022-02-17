@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './style.module.css';
+
+import { Housemate } from '../';
 
 // TODO - Refactor how results page is handled
 
@@ -13,44 +15,17 @@ const Guessing = ({ roundData, updateGameStatus, setWinner }) => {
 
     console.log(e.target.closest('section').id);
 
-    updateGameStatus('RESULTS');
+    // updateGameStatus('test');
   };
 
   return (
     <>
-      <section
-        id={roundData.housemateOne.housematename}
-        onClick={handleClick}
-        className={style.housemate}
-      >
-        <h1>{roundData.housemateOne.housematename}</h1>
-        <img src={`${imgSrc}${roundData.housemateOne.imageurl}`} />
-        <p>
-          {roundData.housemateOne.nickname
-            ? roundData.housemateOne.nickname
-            : null}
-        </p>
-        <p className='season-name'>{roundData.housemateOne.seasonname}</p>
-      </section>
+      <Housemate housemateData={roundData.housemateOne} />
 
       <section className={style.question}>
         <h2>{roundData.question.text}</h2>
       </section>
-
-      <section
-        id={roundData.housemateOne.housematename}
-        onClick={handleClick}
-        className={style.housemate}
-      >
-        <h1>{roundData.housemateTwo.housematename}</h1>
-        <p>
-          {roundData.housemateTwo.nickname
-            ? roundData.housemateTwo.nickname
-            : null}
-        </p>
-        <p className='season-name'>{roundData.housemateTwo.seasonname}</p>
-        <img src={`${imgSrc}${roundData.housemateTwo.imageurl}`} />
-      </section>
+      <Housemate housemateData={roundData.housemateTwo} />
     </>
   );
 };

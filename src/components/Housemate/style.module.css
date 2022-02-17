@@ -1,0 +1,14 @@
+.housemate {
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.housemate img {
+  width: 150px;
+  border-radius: 200px;
+  border: 5px solid green;
+}

@@ -6,3 +6,4 @@ export { default as GameEnd } from './GameEnd';
 export { default as SpecialEvent } from './SpecialEvent';
 export { default as Score } from './Score';
 export { default as Guessing } from './Guessing';
+export { default as Housemate } from './Housemate';
