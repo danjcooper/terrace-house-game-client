@@ -14,8 +14,6 @@ const Guessing = ({ roundData, updateGameStatus, setWinner }) => {
     setWinner(result);
 
     console.log(e.target.closest('section').id);
-
-    // updateGameStatus('test');
   };
 
   return (
@@ -25,6 +23,7 @@ const Guessing = ({ roundData, updateGameStatus, setWinner }) => {
       <section className={style.question}>
         <h2>{roundData.question.text}</h2>
       </section>
+
       <Housemate housemateData={roundData.housemateTwo} />
     </>
   );

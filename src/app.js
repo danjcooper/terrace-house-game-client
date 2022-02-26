@@ -9,7 +9,7 @@ import {
   NotFound,
   LeaderBoard,
 } from './pages';
-import { Nav } from './components';
+import { Nav, Timer } from './components';
 
 import './style.css';
 
@@ -23,6 +23,7 @@ const App = () => {
         <Route path='/play' element={<Game />} />
         <Route path='/leaderboard' element={<LeaderBoard />} />
         <Route path='/about' element={<About />} />
+        <Route path='/test' element={<Timer duration={'10'} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </main>
